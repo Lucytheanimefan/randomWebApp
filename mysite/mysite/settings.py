@@ -32,6 +32,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
+    'django.contrib.admindocs',
+    'blog',
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -79,9 +82,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+    'db_blog': { #blog
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mysite.db',
     }
 }
 
+DATABASE_ROUTERS = ['blog.dbRouter.BlogDBRouter']
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
