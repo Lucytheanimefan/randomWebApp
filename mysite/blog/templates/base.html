@@ -4,16 +4,34 @@
 <head>
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <script type="text/javascript" src="{% static 'blog/script.js' %}"></script>
     <meta charset="utf-8">
     <title>
         {% block title %}{% endblock %}
     </title>
 </head>
+<nav class="w3-sidenav w3-white w3-card-2" style="display:none" id="mySidenav">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-closenav w3-large">Close &times;</a>
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+    <a href="#">Link 4</a>
+    <a href="#">Link 5</a>
+</nav>
+<div id="main">
+    <header class="w3-container w3-teal">
+        <span class="w3-opennav w3-xlarge" onclick="w3_open()" id="openNav">&#9776;</span>
+        <h1>{% block header %} {% endblock %}</h1>
+    </header>
+    <div class="w3-container">
 
-<body>
-    <div class="content">
-        {% block content %} {% endblock %}
+        <body>
+            <div class="content">
+                {% block content %} {% endblock %}
+            </div>
+        </body>
     </div>
-</body>
+</div>
 
 </html>
