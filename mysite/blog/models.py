@@ -2,6 +2,8 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.template.defaultfilters import slugify
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Post(models.Model):
@@ -11,6 +13,7 @@ class Post(models.Model):
 	content = models.TextField()
 	published = models.BooleanField(default=True)
 	created = models.DateTimeField(auto_now_add=True)
+	#author = models.ForeignKey(User)
 
 class Meta:
 	ordering = ['-created']
@@ -19,4 +22,4 @@ class Meta:
 		return u'%s' % self.title
 
 	def get_absolute_url(self):
-		return reverse('blog.views.post', args=[self.slug])
+		return reverse(blog.views.post, args=[self.slug])
