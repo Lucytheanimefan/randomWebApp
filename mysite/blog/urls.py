@@ -1,14 +1,21 @@
-from django.conf.urls import patterns, include, url
-from . import views
-     
+from django.conf.urls import *
+#from django.contrib import admin
+from blog.views import *
+   
 #admin.autodiscover()
 
-app_name = 'blog'
+#app_name = 'blog'
+urlpatterns=patterns('blog.views', 
+	url(r'^$', index),
+	url(r'^(?P<slug>[\w\-]+)/$', post),)
+
+'''
 urlpatterns = [
     #url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', views.index, name='index'),
-    url(r'^(?P<slug>[\w\-]+)/$', views.post, name='post'),
+    url(r'^$', blog.views.index),
+    url(r'^(?P<slug>[\w\-]+)/$', blog.views.post),
 ]
+'''
 
 '''
 from django.conf.urls import url

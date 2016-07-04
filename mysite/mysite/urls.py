@@ -23,5 +23,7 @@ urlpatterns = [
 	url(r'^polls/', include('polls.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^blog/', include('blog.urls')),
+    #url(r'^$', 'blog.views.index'),
+    #url(r'^(?P<slug>[\w\-]+)/$', 'blog.views.post'),
     #url(r'^(?P<slug>[\w\-]+)/$', 'blog.views.post'),
 ]

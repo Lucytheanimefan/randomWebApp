@@ -15,11 +15,13 @@ class Post(models.Model):
 	created = models.DateTimeField(auto_now_add=True)
 	#author = models.ForeignKey(User)
 
-class Meta:
-	ordering = ['-created']
-     
+
+	class Meta:
+		ordering = ['-created']
+	     
 	def __unicode__(self):
 		return u'%s' % self.title
 
 	def get_absolute_url(self):
-		return reverse(blog.views.post, args=[self.slug])
+		print 'getting my url'
+		return reverse('blog.views.post', args=[self.slug])
